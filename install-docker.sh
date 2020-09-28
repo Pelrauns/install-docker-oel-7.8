@@ -411,7 +411,7 @@ do_install() {
 					$sh_c "$config_manager $enable_channel_flag docker-ce-$CHANNEL"
 				fi
 
-				$sh_c /bin/sed -i 's/$releasever/7/g' /etc/yum.repos.d/docker-ce.repo
+				sudo /bin/sed -i 's/$releasever/7/g' /etc/yum.repos.d/docker-ce.repo
 				$sh_c "$pkg_manager makecache fast"
 				$sh_c "$pkg_manager install -y -q docker-ce-${docker_version} docker-ce-cli-${docker_version}"
 				if [ -d '/run/systemd/system' ]; then
